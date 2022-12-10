@@ -4,13 +4,14 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 " add the plugin you want to use here.
 Plug 'joshdick/onedark.vim'
 Plug 'iCyMind/NeoSolarized'
+Plug 'puremourning/vimspector'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'puremourning/vimspector'
-
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -34,3 +35,10 @@ let g:vimtex_view_general_viewer = 'D://Nvim_PDF//SumatraPDF-3.4.6-64.exe'
 "                \ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
 "                \ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+
+" Python 配置
+let g:python_host_prog = 'D://Miniconda3//python.exe'
+let g:python3_host_prog = 'D://Miniconda3//python.exe'
+
+" coc.nvim
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
