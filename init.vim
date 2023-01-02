@@ -11,7 +11,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'puremourning/vimspector'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -42,3 +43,11 @@ let g:python3_host_prog = 'D://Miniconda3//python.exe'
 
 " coc.nvim
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+set cursorline
+set cursorcolumn
+
+
+"MarkdownPreview Config:
+autocmd Filetype markdown noremap ,m :MarkdownPreview<CR>
+autocmd Filetype markdown noremap ,ms :MarkdownPreviewStop<CR>
