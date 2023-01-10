@@ -10,10 +10,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
-Plug 'puremourning/vimspector'
+
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+Plug 'preservim/nerdtree'
 call plug#end()
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -39,8 +40,10 @@ let g:vimtex_view_general_viewer = 'D://Nvim_PDF//SumatraPDF-3.4.6-64.exe'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 " Python 配置
-let g:python_host_prog = 'D://Miniconda3//envs//SPSR//python.exe'
-let g:python3_host_prog = 'D://Miniconda3//envs//SPSR//python.exe'
+"let g:python_host_prog = 'D://Miniconda3//envs//SPSR//python.exe'
+"let g:python3_host_prog = 'D://Miniconda3//envs//SPSR//python.exe'
+let g:python_host_prog = 'D://Miniconda3//python.exe'
+let g:python3_host_prog = 'D://Miniconda3//python.exe'
 
 " coc.nvim
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -53,6 +56,16 @@ set cursorcolumn
 autocmd Filetype markdown noremap ,m :MarkdownPreview<CR>
 autocmd Filetype markdown noremap ,ms :MarkdownPreviewStop<CR>
 
-
+"vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
-nmap <leader>dd :call vimspector#launch()<CR>
+"packadd! vimspector
+"nmap <leader>dd :call vimspector#launch()<CR>"
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
+
+
+
+"nerdtree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
